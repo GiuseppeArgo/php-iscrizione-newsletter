@@ -1,13 +1,9 @@
 <?php
+require_once __DIR__ . "/partials/functions.php";
+
 if (isset($_POST["user_email"])) {
     $user_email = $_POST["user_email"];
-    if (str_contains($user_email, ".") && str_contains($user_email, "@") ) {
-        $check_mail = "Iscrizione effettuata";
-        $result = "bg-success-subtle";
-    } else {
-        $check_mail = "L'email non è valida, assicurati che contenga '.' e '@'";
-        $result = "bg-danger-subtle";
-    }
+    $result = check_email($user_email);
 }
 ?>
 
@@ -31,9 +27,9 @@ if (isset($_POST["user_email"])) {
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-        <?php if (isset($_POST["user_email"])) { ?>
-            <div class="p-3 w-50 mx-auto my-3 text-center <?php echo $result ?>">
-            <?php echo $check_mail?>
+        <?php if (isset($result)) { ?>
+            <div class="p-3 w-50 mx-auto my-3 text-center <?php echo $result ? "bg-success-subtle" : "bg-danger-subtle" ?>">
+                <?php echo $result ? "Iscrizione effettuata" : "L'email non è valida, assicurati che contenga '.' e '@'" ?>
             </div>
         <?php } ?>
     </div>
@@ -41,3 +37,4 @@ if (isset($_POST["user_email"])) {
 </div>
 </body>
 </html>
+

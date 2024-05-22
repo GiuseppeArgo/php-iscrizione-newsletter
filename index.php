@@ -18,22 +18,22 @@ if (isset($_POST["user_email"])) {
 </head>
 <body>
 <div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-6">
-        <form action="index.php" method="POST">
-            <div class="mb-3">
-            <label for="mail" class="form-label">Inserisci la tua mail</label>
-            <input type="text" class="form-control" id="mail" name="user_email">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-        <?php if (isset($result)) { ?>
-            <div class="p-3 w-50 mx-auto my-3 text-center <?php echo $result ? "bg-success-subtle" : "bg-danger-subtle" ?>">
-                <?php echo $result ? "Iscrizione effettuata" : "L'email non è valida, assicurati che contenga '.' e '@'" ?>
-            </div>
-        <?php } ?>
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <form action="index.php" method="POST">
+                <div class="mb-3">
+                <label for="mail" class="form-label">Inserisci la tua mail</label>
+                <input type="text" class="form-control" id="mail" name="user_email">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <?php if (isset($result)) { ?>
+                <div class="p-3 w-50 mx-auto my-3 text-center <?php echo $result ? "bg-success-subtle" : "bg-danger-subtle" ?>">
+                    <?php echo $result ? "Iscrizione effettuata" : "L'email non è valida, assicurati che contenga '.' e '@'" ?>
+                </div>
+            <?php } ?>
+        </div>
     </div>
-  </div>
 </div>
 </body>
 </html>
